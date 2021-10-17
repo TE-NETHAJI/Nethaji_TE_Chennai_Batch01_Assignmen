@@ -1,0 +1,156 @@
+ QUERIES WITH RESPECT TO OPERATORS
+
+1) LIST ALL THE EMPLOYEES WHOSE COMMISSION 
+IS NULL 
+
+ SQL>select * from emp where comm is null;
+
+2) LIST ALL THE EMPLOYEES WHO DON’T HAVE A 
+REPORTING MANAGER
+
+ SQL>select * from emp where mgr is null;
+
+4) LIST ALL THE SALESMEN IN DEPT NUMBER 30 
+AND HAVING SALARY GREATER THAN 1500
+
+ SQL> select * from emp where job = 'SALESMAN' and deptno =30 and sal>1500;
+
+
+5) LIST ALL THE EMPLOYEES WHOSE NAME STARTS 
+WITH ‘S’ OR ‘A’
+
+SQL> select * from emp where ename like 'S%' or ename like 'A%';
+
+6) LIST ALL THE EMPLOYEES EXCEPT THOSE WHO 
+ARE WORKING IN DEPT 10 & 20.
+
+SQL> select * from emp where deptno not in (10,20);
+
+7) LIST THE EMPLOYEES WHOSE NAME DOES NOT 
+START WITH ‘S’
+
+SQL> select * from emp where ename not like 'S%';
+
+8) LIST ALL THE EMPLOYEES WHO ARE HAVING 
+REPORTING MANAGERS IN DEPT 10
+
+SQL> select * from emp where mgr is not null and deptno in 10;
+
+9) LIST ALL THE EMPLOYEES WHOSE COMMISSION 
+IS NULL AND WORKING AS CLERK
+
+SQL> select * from emp where comm is null and job = 'CLERK';
+
+10) LIST ALL THE EMPLOYEES WHO DON’T HAVE A 
+REPORTING MANAGER IN DEPTNO 10 OR 30
+
+SQL>select * from emp where mgr is null and deptno in (10,30);
+
+11) LIST ALL THE MANAGER IN DEPT 30 WITH SAL 
+MORE THAN 2400
+
+SQL>select * from emp where job = 'MANAGER' and deptno = 30 and sal>2400;
+
+12) LIST ALL THE ANALYST IN DEPT NUMBER 20
+AND HAVING SALARY GREATER THAN 2500
+
+SQL> select * from emp where job ='ANALYST' and deptno =20 and sal>2500;
+
+13) LIST ALL THE EMPLOYEES WHOSE NAME 
+STARTS WITH ‘M’ OR ‘J’
+
+SQL> select * from emp where ename like 'M%' or ename like 'J%';
+
+14) LIST ALL THE EMPLOYEES WITH ANNUAL 
+SALARY EXCEPT THOSE WHO ARE WORKING IN 
+DEPT 30
+
+SQL>select sal*12 from emp where deptno != 30;
+
+15) LIST THE EMPLOYEES WHOSE NAME DOES NOT 
+END WITH ‘ES’ OR ‘R’
+
+SQL> select * from emp where ename not like '%ES' and ename not like '%R';
+
+16) LIST ALL THE EMPLOYEES WHO ARE HAVING 
+REPORTING MANAGERS IN DEPT 10 ALONG WITH 
+10% HIKE IN SALARY
+
+
+
+17) DISPLAY ALL THE EMPLOYEE WHO ARE 
+‘SALESMAN’S HAVING ‘E’ AS THE LAST BUT ONE 
+CHARACTER IN ENAME BUT SALARY HAVING 
+EXACTLY 4 CHARACTER
+
+SQL> select * from emp where ename like '%E_' and sal like '____';
+
+18) DISPLAY ALL THE EMPLOYEE WHO ARE JOINED 
+AFTER YEAR 81
+
+SQL> select * from emp where hiredate > '01-JAN-1981';
+
+19) DISPLAY ALL THE EMPLOYEE WHO ARE JOINED 
+IN FEB
+
+SQL> select * from emp where hiredate like '%FEB%';
+
+20) LIST THE EMPLOYEES WHO ARE NOT WORKING 
+AS MANAGERS AND CLERKS IN DEPT 10 AND 20 
+WITH A SALARY IN THE RANGE OF 1000 TO 3000
+
+SQL> select * from emp where job  not in ('MANAGER','CLERK') and deptno in (10,20) and sal between 
+1000 and 3000;
+
+21) LIST THE EMPLOYEES WHOSE SALARY NOT IN 
+THE RANGE OF 1000 TO 2000 AND WORKING IN DEPT 
+10,20 OR 30 EXCEPT ALL SALESMEN
+
+SQL> select * from emp where sal >1000 and sal<2000 and deptno in (10,20,30) and job != 'SALESMAN';
+
+23) DISPLAY ALL THE EMPLOYEES WHOSE JOB HAS 
+STRING ‘MAN’ IN IT.
+
+SQL> select * from emp where job like '%MAN%';
+
+24)LIST THE EMPLOYEES WHO ARE HIRED AFTER 82 
+AND BEFORE 87.
+
+ SQL>select * from emp where hiredate> '01-JAN-1982' and hiredate < '31-DEC-1987';
+
+25)WAQTD ALL THE DETAILS OF EMPLOYEES HIRED 
+IN NOVEMBER AND DECEMBER.
+
+SQL> select * from emp where hiredate like '%NOV%' and hiredate like '%DEC%';
+
+
+26)LIST ALL THE EMPLOYEE NAMES AND 
+COMISSION FOR THOSE EMPLOYEES WHO EARN 
+COMISSION MORE THAN THEIR SALARY
+
+SQL> select ename, comm from emp where comm > sal;
+
+27)WAQTD NAME AND DESIGNATION FOR ALL THE 
+EMPLOYEES HAVING REPORTING MANAGERS AND 
+ALSO THRIE NAMES STARTING WITH ‘S’
+SQL> select ename, job from emp where mgr is not null and ename like 'S%';
+
+28)WAQTD NAME AND SALARY OF ALL THE 
+EMPLOYEES IF THEIR ANNUAL SALARY ENDS WITH 
+‘0’ .
+SQL>select ename, sal from emp where sal like '%0';
+
+29)WAQTD NAME OF THE EMPLOYEE HAVING 
+ATLEAST 2L’s IN HIS NAME .
+
+SQL>select ename from emp where ename like '%L%L%';
+
+30)WAQTD NAME OF THE EMPLOYEES WHOS NAME 
+STARTS WITH A ‘VOWEL
+
+SQL>select ename from emp where ename like 'V%' or ename like  'O%' or ename like  'W%' or ename like 'E%' or ename like  'L%';
+
+
+
+
+
